@@ -147,3 +147,22 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+# 系統雜檔
+.DS_Store
+Thumbs.db
+
+# 編輯器個人設定
+.vscode/
+.idea/
+
+# 金鑰:所有 .env 變體都不上傳,只留範例檔
+.env
+.env.*
+!.env.example
+
+# 本機資料庫(如果之後用 SQLite)
+*.db
+*.sqlite
+
+# Claude Code 的個人設定
+.claude/settings.local.json
