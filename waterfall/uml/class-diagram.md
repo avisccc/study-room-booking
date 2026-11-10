@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
     direction TB
 
@@ -177,3 +178,4 @@ classDiagram
     Booking "1" --> "0..*" BookingInvitation : 包含受邀名單 (FR-21, FR-22)
     Booking --> BookingStatus : 狀態 (FR-20)
     LibrarianService ..> LibrarianAuditLog : 寫入成功操作稽核 (FR-49)
+```
