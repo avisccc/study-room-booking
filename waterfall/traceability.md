@@ -1,6 +1,9 @@
 # 瀑布組需求追溯表（Traceability Matrix）
 
-> 本表依據 `waterfall/SRS.md` (v0.1) 建立，涵蓋 FR-01～FR-49 與 NFR-01～NFR-13，對應至 `waterfall/uml/` 下之類別圖（`class-diagram.md`）、狀態圖（`state-diagram.md`）與循序圖（`sequence-diagram.md`）。「程式(PR)」、「測試編號」將於建構與測試階段補齊；「對應的敏捷 story」將於跨組比較分析時由 C + D 填寫。
+> **維護者**：C（瀑布組 建模與建構）
+> **基準版本**：已核對 `waterfall/SRS.md` v0.1（FR-01～FR-49、NFR-01～NFR-13）
+> **核對狀態**：所有需求均已完成來源與 UML 映射；程式 PR 與測試編號待後續階段補齊。
+
 
 ## 1. 功能需求追溯（FR-01 ～ FR-49）
 
