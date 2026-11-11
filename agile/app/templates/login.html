@@ -13,6 +13,7 @@
     <p>帳號：<input type="text" name="username" required></p>
     <p>密碼：<input type="password" name="password" required></p>
     <button type="submit">登入</button>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 </form>
 
 </body>

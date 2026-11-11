@@ -1,11 +1,13 @@
 
 import sqlite3
 from pathlib import Path
+from flask_wtf.csrf import CSRFProtect
 from werkzeug.security import check_password_hash
 from flask import Flask, render_template, request, session, redirect, url_for
 import os
 
 app = Flask(__name__)
+CSRFProtect(app)
 app.secret_key = os.environ["SECRET_KEY"]
 
 # 資料庫位置
@@ -78,4 +80,4 @@ def logout():
 
 # 啟動 Flask
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
