@@ -1,5 +1,6 @@
 from werkzeug.security import generate_password_hash
 import sqlite3
+import os
 
 def init_db():
     conn = sqlite3.connect("agile/app/booking.db")
@@ -15,10 +16,20 @@ def init_db():
     """)
 
 
+   
     users = [
-        ("student01", "1234", "student"),
-        ("admin01", "5678", "admin")
+        (
+            "student01",
+            os.environ["STUDENT_PASSWORD"],
+            "student"
+        ),
+        (
+            "admin01",
+            os.environ["ADMIN_PASSWORD"],
+            "admin"
+        )
     ]
+
 
     for username, password, role in users:
         cursor.execute(
@@ -33,6 +44,7 @@ def init_db():
                    VALUES (?, ?, ?)""",
                 (username, generate_password_hash(password), role)
             )
+
 
     conn.commit()
     conn.close()
