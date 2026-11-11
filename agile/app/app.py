@@ -36,7 +36,7 @@ def dashboard():
         return redirect(url_for("home"))
 
     if session["role"] == "admin":
-        return "管理員首頁"
+        return render_template("admin.html")
 
     return render_template("student.html")
 
