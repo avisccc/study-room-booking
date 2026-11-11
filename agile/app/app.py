@@ -58,6 +58,17 @@ def dashboard():
     return render_template("student.html")
 
 
+@app.route("/admin")
+def admin_page():
+    if "username" not in session:
+        return redirect(url_for("home"))
+
+    if session.get("role") != "admin":
+        return "沒有權限進入管理員頁面", 403
+
+    return render_template("admin.html")
+
+
 # 登出功能
 @app.route("/logout", methods=["POST"])
 def logout():
