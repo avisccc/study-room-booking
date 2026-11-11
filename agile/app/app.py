@@ -3,9 +3,10 @@ import sqlite3
 from pathlib import Path
 from werkzeug.security import check_password_hash
 from flask import Flask, render_template, request, session, redirect, url_for
+import os
 
 app = Flask(__name__)
-app.secret_key = "dev-only-change-this-key"
+app.secret_key = os.environ["SECRET_KEY"]
 
 # 資料庫位置
 DB_PATH = Path(__file__).resolve().parent / "booking.db"
