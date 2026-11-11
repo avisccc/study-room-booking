@@ -10,8 +10,13 @@ def home():
         password = request.form.get("password")
 
         
+        
         if username == "student01" and password == "1234":
-            return "登入成功！"
+            return "學生首頁"
+
+        elif username == "admin01" and password == "5678":
+            return "管理員首頁"
+
         else:
             return "帳號或密碼錯誤！"
 
