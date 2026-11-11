@@ -35,10 +35,26 @@ def dashboard():
     if "username" not in session:
         return redirect(url_for("home"))
 
+    
     if session["role"] == "admin":
-        return "管理員首頁"
+        title = "管理員首頁"
+    else:
+        title = "學生首頁"
 
-    return "學生首頁"
+    return f"""
+        <h1>{title}</h1>
+        <p>登入帳號：{session['username']}</p>
+        <form action="/logout" method="POST">
+            <button type="submit">登出</button>
+        </form>
+    """
+
+
+
+@app.route("/logout", methods=["POST"])
+def logout():
+    session.clear()
+    return redirect(url_for("home"))
 
 if __name__ == "__main__":
     app.run(debug=True)
