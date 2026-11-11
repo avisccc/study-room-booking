@@ -1,4 +1,4 @@
-
+from werkzeug.security import generate_password_hash
 import sqlite3
 
 def init_db():
@@ -13,6 +13,26 @@ def init_db():
             role TEXT NOT NULL
         )
     """)
+
+
+    users = [
+        ("student01", "1234", "student"),
+        ("admin01", "5678", "admin")
+    ]
+
+    for username, password, role in users:
+        cursor.execute(
+            "SELECT id FROM users WHERE username = ?",
+            (username,)
+        )
+
+        if cursor.fetchone() is None:
+            cursor.execute(
+                """INSERT INTO users
+                   (username, password_hash, role)
+                   VALUES (?, ?, ?)""",
+                (username, generate_password_hash(password), role)
+            )
 
     conn.commit()
     conn.close()
