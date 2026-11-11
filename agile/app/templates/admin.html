@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>管理員首頁</title>
+</head>
+<body>
+    <h1>討論室預約系統</h1>
+    <h2>管理員首頁</h2>
+
+    <p>歡迎使用管理員系統！</p>
+
+    <h3>管理功能</h3>
+    <ul>
+        <li>管理討論室</li>
+        <li>管理開放時間</li>
+        <li>查看預約狀況</li>
+        <li>管理使用者違規紀錄</li>
+    </ul>
+
+    <form action="/logout" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button type="submit">登出</button>
+    </form>
+</body>
+</html>
