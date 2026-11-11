@@ -35,19 +35,10 @@ def dashboard():
     if "username" not in session:
         return redirect(url_for("home"))
 
-    
     if session["role"] == "admin":
-        title = "管理員首頁"
-    else:
-        title = "學生首頁"
+        return "管理員首頁"
 
-    return f"""
-        <h1>{title}</h1>
-        <p>登入帳號：{session['username']}</p>
-        <form action="/logout" method="POST">
-            <button type="submit">登出</button>
-        </form>
-    """
+    return render_template("student.html")
 
 
 
