@@ -9,7 +9,12 @@ def home():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        return f"收到帳號：{username}"
+        
+        if username == "student01" and password == "1234":
+            return "登入成功！"
+        else:
+            return "帳號或密碼錯誤！"
+
 
     return render_template("login.html")
 
